@@ -22,14 +22,14 @@ class Cars{
     }
 
     void accelerate(int speed_increment){
-        speed=speed+speed_increment;
+        speed=speed+speed_increment;    // acceleration of the car
     }
 
     void brake(int speed_decrement){
-        speed=speed-speed_decrement;
+        speed=speed-speed_decrement;   // deceleration of the car
     }
 
-    void move(){
+    void move(){      // makes the car move
         x=x+speed;
         y=y+speed;
     }
@@ -38,7 +38,7 @@ class Cars{
         int a= x - car2->x;
         int b= y - car2->y;
         int distance=sqrt(a*a + b*b);
-        if(distance == 0){
+        if(distance == 0){    
             return true;
         }
         else{
@@ -47,8 +47,8 @@ class Cars{
     }
 
     void time_to_collision(Cars *car2){
-        int relspeed=speed - car2->speed;
-        double time=fabs(x - car2->x);
+        double relspeed=speed - car2->speed;
+        double time=fabs(x - car2->x)/relspeed;
         if(relspeed==0){
             cout<<"INFINITE";
         }
@@ -60,7 +60,7 @@ class Cars{
 
 };
 int main (){
-    
+    //example
     Cars car1("Hyundai","Alto",1998,50,0,0);
     Cars car2("Maruti","Creta",1898,70,50,50);
     car1.accelerate(10);
